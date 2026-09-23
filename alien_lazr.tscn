@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs4jruvgb21vl"]
+
+[ext_resource type="Texture2D" uid="uid://dc5syju8j12tr" path="res://images/alien bullet.png" id="2_23t8l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k7o22"]
+
+[node name="alien lazr" type="Area2D"]
+collision_layer = 8
+collision_mask = 17
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, -27)
+rotation = -3.13907
+scale = Vector2(0.0729032, 0.0689852)
+texture = ExtResource("2_23t8l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k7o22")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

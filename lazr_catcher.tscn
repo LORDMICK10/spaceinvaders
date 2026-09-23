@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d340s4cjbn4hn"]
+
+[ext_resource type="Script" uid="uid://cnq4t88eptboj" path="res://lazr_catcher.gd" id="1_bxqm2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_radpu"]
+size = Vector2(1219, 34)
+
+[node name="Lazr Catcher" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_bxqm2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(557.5, -8)
+shape = SubResource("RectangleShape2D_radpu")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

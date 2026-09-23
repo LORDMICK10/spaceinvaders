@@ -1,0 +1,121 @@
+[gd_scene load_steps=11 format=3 uid="uid://b5h06ig1lsbiw"]
+
+[ext_resource type="Script" uid="uid://dfwt2c3yp11qq" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://bbgew2a203htk" path="res://images/shooter_ship-removebg-preview.png" id="2_i3pqv"]
+[ext_resource type="Script" uid="uid://birjdh2dxf86c" path="res://gun.gd" id="3_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://brx5i8vrupjiu" path="res://lazer.tscn" id="4_hqtel"]
+[ext_resource type="Texture2D" uid="uid://c6df2mglboxu0" path="res://images/fire png 2.png" id="5_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://d03451b78co4v" path="res://images/png fire.png" id="6_1jxqw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
+size = Vector2(168, 181.5)
+
+[sub_resource type="Animation" id="Animation_b26j0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_i3pqv")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_dw050"]
+resource_name = "ship_KABOOM"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_2hs0m"), ExtResource("6_1jxqw")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.14159]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n7ghd"]
+_data = {
+&"RESET": SubResource("Animation_b26j0"),
+&"ship_KABOOM": SubResource("Animation_dw050")
+}
+
+[node name="Player" type="Area2D"]
+position = Vector2(696, 587)
+rotation = 3.14159
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_onrkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_i3pqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -4.75)
+shape = SubResource("RectangleShape2D_hqtel")
+
+[node name="gun" type="Node2D" parent="."]
+position = Vector2(-0.000234381, 98)
+script = ExtResource("3_i3pqv")
+lazer_scene = ExtResource("4_hqtel")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_n7ghd")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

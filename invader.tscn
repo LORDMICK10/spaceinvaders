@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=3 uid="uid://b84mk8rf23joh"]
+
+[ext_resource type="Script" uid="uid://div2tuj4t3ky3" path="res://invader.gd" id="1_ctdqs"]
+[ext_resource type="Texture2D" uid="uid://c6df2mglboxu0" path="res://images/fire png 2.png" id="3_uji37"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dl81w"]
+size = Vector2(134, 88)
+
+[sub_resource type="Animation" id="Animation_sdb1l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.711111, 0.705556)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_uji37")]
+}
+
+[sub_resource type="Animation" id="Animation_kn2dv"]
+resource_name = "xplosion anima"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.766667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.099), Vector2(0.15, 0.149), Vector2(0.17, 0.169), Vector2(0.17, 0.169)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_uji37")]
+}
+
+[sub_resource type="Animation" id="Animation_uji37"]
+resource_name = "xplosion2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kjfw7"]
+_data = {
+&"RESET": SubResource("Animation_sdb1l"),
+&"xplosion anima": SubResource("Animation_kn2dv"),
+&"xplosion2": SubResource("Animation_uji37")
+}
+
+[node name="invader area 2d" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_ctdqs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -1)
+scale = Vector2(0.711111, 0.705556)
+texture = ExtResource("3_uji37")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -2)
+shape = SubResource("RectangleShape2D_dl81w")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kjfw7")
+}
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

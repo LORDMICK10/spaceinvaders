@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://6yuutut4tni8"]
+
+[ext_resource type="Script" uid="uid://cyyjelwoye4is" path="res://alien_lazr.gd" id="1_lss6e"]
+[ext_resource type="Texture2D" uid="uid://cedm47d5yt338" path="res://images/alien bullet2.pngu.png" id="2_5j75s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1t3cl"]
+size = Vector2(60, 80)
+
+[node name="alien lazer area 2d" type="Area2D"]
+collision_layer = 8
+collision_mask = 17
+script = ExtResource("1_lss6e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.14159
+scale = Vector2(0.083871, 0.0724059)
+texture = ExtResource("2_5j75s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 22)
+shape = SubResource("RectangleShape2D_1t3cl")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

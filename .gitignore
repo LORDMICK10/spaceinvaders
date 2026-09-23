@@ -1,0 +1,21 @@
+images/
+spaceinvaders/images
+*.zip
+
+# Godot 4+ specific ignores
+spaceinvaders/.godot/
+spaceinvaders/.nomedia
+
+# Godot-specific ignores
+spaceinvaders/.import/
+spaceinvaders/export.cfg
+spaceinvaders/export_credentials.cfg
+spaceinvaders/*.tmp
+
+# Imported translations (automatically generated from CSV files)
+spaceinvaders/*.translation
+
+# Mono-specific ignores
+spaceinvaders/.mono/
+spaceinvaders/data_*/
+spaceinvaders/mono_crash.*.json

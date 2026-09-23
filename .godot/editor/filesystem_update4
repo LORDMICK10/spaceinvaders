@@ -1,0 +1,11 @@
+res://start.tscn
+res://ufo_area_2d.tscn
+res://bunker.tscn
+res://main.tscn
+res://alien_lazr.tscn
+res://lazer.tscn
+res://alien_lazer_area_2d.tscn
+res://player.tscn
+res://canvas_layer.tscn
+res://invader_spawner.tscn
+res://ufo_spawner_node_2d.tscn
