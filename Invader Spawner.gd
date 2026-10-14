@@ -44,6 +44,7 @@ func start_game():
 			add_child(invader)
 	timer.start()
 	shoot_timer.start()
+	print("timer is paused:",timer.is_paused())
 	timer.timeout.connect(moveinvaders)
 	shoot_timer.timeout.connect(invader_shoot)
 	
@@ -51,7 +52,7 @@ func stop_game():
 	shoot_timer.stop()
 	timer.stop()
 	
-	var ships = get_children()
+	var ships = get_children().filter(func(x):return x is Invader)
 	for ship in ships:
 		remove_child(ship)
 	
