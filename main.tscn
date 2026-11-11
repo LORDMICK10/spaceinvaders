@@ -73,6 +73,7 @@ script = ExtResource("6_7mycd")
 script = ExtResource("7_272bh")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("8_5vw27")]
+unique_name_in_owner = true
 
 [connection signal="area_entered" from="Walls/left wall" to="Invader Spawner" method="_on_left_wall_area_entered"]
 [connection signal="area_entered" from="Walls/right wall" to="Invader Spawner" method="_on_right_wall_area_entered"]

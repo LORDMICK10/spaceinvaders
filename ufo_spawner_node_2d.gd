@@ -5,7 +5,6 @@ var UFOO
 @onready var life_manager: LIFE_MANAGER = $"../LIFE MANAGER"
 
 
-
 @export var UFOscene:PackedScene
 @onready var ufo_spawn_timer: Timer = $Spawn_Timer
 @onready var shoot_timer: Timer = $"Shoot Timer"
@@ -14,6 +13,7 @@ func _ready() -> void:
 	ufo_spawn_timer.Timer_Setup()   
 	life_manager.GAME_LOST.connect(on_Game_Over)
 	invader_spawner.Game_Won.connect(on_Game_Over)
+	%CanvasLayer.Game_start.connect(on_Game_start)
 	
 func _on_spawn_timer_timeout() -> void:
  
@@ -39,3 +39,6 @@ func _on_UFO_destroyed() -> void:
 func on_Game_Over():
 	ufo_spawn_timer.stop()
 	shoot_timer.stop()
+
+func on_Game_start():
+	ufo_spawn_timer.start()
