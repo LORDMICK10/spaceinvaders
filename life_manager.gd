@@ -8,7 +8,7 @@ signal GAME_LOST
 var PlayerScene = preload("res://player.tscn")
 func _ready() -> void:
 	player.player_destroyed.connect(_on_player_destroyed)
-
+	%CanvasLayer.Game_start.connect(on_Game_start)
 
 func _on_player_destroyed():
 	Lives = Lives -1
@@ -21,3 +21,7 @@ func _on_player_destroyed():
 	
 	if Lives < 1:
 		GAME_LOST.emit()
+
+func on_Game_start():
+	Lives = 3
+	

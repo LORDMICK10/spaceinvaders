@@ -12,14 +12,9 @@ signal Game_start
 var Life_Texture = preload("res://images/shooter ship.jpg")
 
 func _ready():
-	points_label.text = "Score:%d" %0
+	reset_ui()
 	life_manager.LIFE_LOST.connect(_on_life_lost)
-	for i in range(life_manager.Lives):
-		var life_texture_rect = TextureRect.new()
-		life_texture_rect.expand_mode = TextureRect.EXPAND_FIT_HEIGHT
-		life_texture_rect.custom_minimum_size = Vector2(40,25)
-		life_texture_rect.texture = Life_Texture
-		h_box_container.add_child(life_texture_rect)
+	
 	invader_spawner.GAME_LOST.connect(_on_GAME_LOST)
 	invader_spawner.Game_Won.connect(_on_Game_Won)
 	life_manager.GAME_LOST.connect(_on_GAME_LOST)
@@ -27,7 +22,7 @@ func _ready():
 		
 func _on_life_lost(livesleft:int):
 	if livesleft >=  0 :
-		var Life = h_box_container.get_child(livesleft)
+		var Life = h_box_container.get_child(0)
 		Life.queue_free()
 	
 func add_score(points:int):
@@ -36,11 +31,12 @@ func add_score(points:int):
 func _on_GAME_LOST():
 	center_container.visible = true
 	texture_rect.visible = true
+	clear_lives()
 	
 func _on_Game_Won():
 	center_container.visible = true
 	texture_rect_won.visible = true
-
+	clear_lives()
 
 func _on_button_pressed() -> void:
 	Game_start.emit()
@@ -48,3 +44,23 @@ func _on_button_pressed() -> void:
 	texture_rect.visible = false
 	texture_rect_won.visible = false
 	score_node.reset_score()
+	reset_ui()
+
+func reset_ui():
+	for i in range(life_manager.Lives):
+		var life_texture_rect = TextureRect.new()
+		life_texture_rect.expand_mode = TextureRect.EXPAND_FIT_HEIGHT
+		life_texture_rect.custom_minimum_size = Vector2(40,25)
+		life_texture_rect.texture = Life_Texture
+		h_box_container.add_child(life_texture_rect)	
+	points_label.text = "Score:%d" %0
+	
+func clear_lives():
+	print ("life_count"+str( h_box_container.get_child_count()))
+	var livesleft = life_manager.Lives
+	if livesleft >=  0 :
+		for i in range(livesleft):
+			var Life = h_box_container.get_child(0)
+			Life.queue_free()
+	
+	
