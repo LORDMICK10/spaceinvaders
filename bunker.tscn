@@ -39,7 +39,7 @@ collision_layer = 16
 collision_mask = 14
 script = ExtResource("1_nw02o")
 sprite = NodePath("top left sprite2d")
-textures = Array[Texture2D]([ExtResource("2_d802a"), ExtResource("3_y1j5k"), ExtResource("4_wik2f")])
+textures = Array[Texture2D]([ExtResource("1_rlg4x"), ExtResource("2_d802a"), ExtResource("3_y1j5k"), ExtResource("4_wik2f")])
 
 [node name="top left sprite2d" type="Sprite2D" parent="bunker RIGHT node2d/TOP LEFT area2d"]
 position = Vector2(18, 0)
@@ -54,7 +54,7 @@ collision_layer = 16
 collision_mask = 14
 script = ExtResource("1_nw02o")
 sprite = NodePath("top right sprite2d")
-textures = Array[Texture2D]([ExtResource("9_k481m"), ExtResource("10_o0ugy"), ExtResource("11_i4rkm")])
+textures = Array[Texture2D]([ExtResource("2_6tas0"), ExtResource("9_k481m"), ExtResource("10_o0ugy"), ExtResource("11_i4rkm")])
 
 [node name="top right sprite2d" type="Sprite2D" parent="bunker RIGHT node2d/TOP RIGHT area2d"]
 position = Vector2(54, 0)
@@ -70,7 +70,7 @@ collision_layer = 16
 collision_mask = 14
 script = ExtResource("1_nw02o")
 sprite = NodePath("bottom left sprite2d")
-textures = Array[Texture2D]([ExtResource("12_yyq0m"), ExtResource("13_qac5e"), ExtResource("14_dprp1")])
+textures = Array[Texture2D]([ExtResource("3_r14h3"), ExtResource("12_yyq0m"), ExtResource("13_qac5e"), ExtResource("14_dprp1")])
 
 [node name="bottom left sprite2d" type="Sprite2D" parent="bunker RIGHT node2d/BOTTOM LEFT area2d"]
 position = Vector2(18, 47)
@@ -86,7 +86,7 @@ collision_layer = 16
 collision_mask = 14
 script = ExtResource("1_nw02o")
 sprite = NodePath("BOTTOM RIGHT sprite2d")
-textures = Array[Texture2D]([ExtResource("15_k0t3y"), ExtResource("16_rl1b7"), ExtResource("17_gujyy")])
+textures = Array[Texture2D]([ExtResource("8_j4vf4"), ExtResource("15_k0t3y"), ExtResource("16_rl1b7"), ExtResource("17_gujyy")])
 
 [node name="BOTTOM RIGHT sprite2d" type="Sprite2D" parent="bunker RIGHT node2d/BOTTOM RIGHT area2d"]
 position = Vector2(54, 44.5)
@@ -106,7 +106,7 @@ collision_layer = 16
 collision_mask = 14
 script = ExtResource("1_nw02o")
 sprite = NodePath("top left sprite2d")
-textures = Array[Texture2D]([ExtResource("2_d802a"), ExtResource("3_y1j5k"), ExtResource("4_wik2f")])
+textures = Array[Texture2D]([ExtResource("1_rlg4x"), ExtResource("2_d802a"), ExtResource("3_y1j5k"), ExtResource("4_wik2f")])
 
 [node name="top left sprite2d" type="Sprite2D" parent="bunker LEFT node2d2/TOP LEFT area2d"]
 position = Vector2(18, 0)
@@ -121,7 +121,7 @@ collision_layer = 16
 collision_mask = 14
 script = ExtResource("1_nw02o")
 sprite = NodePath("top right sprite2d")
-textures = Array[Texture2D]([ExtResource("9_k481m"), ExtResource("10_o0ugy"), ExtResource("11_i4rkm")])
+textures = Array[Texture2D]([ExtResource("2_6tas0"), ExtResource("9_k481m"), ExtResource("10_o0ugy"), ExtResource("11_i4rkm")])
 
 [node name="top right sprite2d" type="Sprite2D" parent="bunker LEFT node2d2/TOP RIGHT area2d"]
 position = Vector2(54, 0)
@@ -137,7 +137,7 @@ collision_layer = 16
 collision_mask = 14
 script = ExtResource("1_nw02o")
 sprite = NodePath("bottom left sprite2d")
-textures = Array[Texture2D]([ExtResource("12_yyq0m"), ExtResource("13_qac5e"), ExtResource("14_dprp1")])
+textures = Array[Texture2D]([ExtResource("3_r14h3"), ExtResource("12_yyq0m"), ExtResource("13_qac5e"), ExtResource("14_dprp1")])
 
 [node name="bottom left sprite2d" type="Sprite2D" parent="bunker LEFT node2d2/BOTTOM LEFT area2d"]
 position = Vector2(18, 47)
@@ -153,7 +153,7 @@ collision_layer = 16
 collision_mask = 14
 script = ExtResource("1_nw02o")
 sprite = NodePath("BOTTOM RIGHT sprite2d")
-textures = Array[Texture2D]([ExtResource("15_k0t3y"), ExtResource("16_rl1b7"), ExtResource("17_gujyy")])
+textures = Array[Texture2D]([ExtResource("8_j4vf4"), ExtResource("15_k0t3y"), ExtResource("16_rl1b7"), ExtResource("17_gujyy")])
 
 [node name="BOTTOM RIGHT sprite2d" type="Sprite2D" parent="bunker LEFT node2d2/BOTTOM RIGHT area2d"]
 position = Vector2(54, 44.5)
